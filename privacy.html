@@ -59,9 +59,26 @@
       padding-top: 20px;
       border-top: 1px solid #e0e0e0;
     }
+
+    /* Offline banner */
+    #offline-banner {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #ff4d4d;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+      z-index: 9999;
+    }
   </style>
 </head>
 <body>
+
+  <div id="offline-banner">⚠ You are offline. Some features may not work.</div>
 
   <div class="container">
     <h1>Privacy Policy</h1>
@@ -128,8 +145,22 @@
     </footer>
   </div>
 
+  <script>
+    const offlineBanner = document.getElementById("offline-banner");
+
+    function updateOnlineStatus() {
+      if (navigator.onLine) {
+        offlineBanner.style.display = "none";
+      } else {
+        offlineBanner.style.display = "block";
+      }
+    }
+
+    window.addEventListener("online", updateOnlineStatus);
+    window.addEventListener("offline", updateOnlineStatus);
+
+    // Initial check
+    updateOnlineStatus();
+  </script>
 </body>
 </html>
-
-
-
