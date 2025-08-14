@@ -1,7 +1,7 @@
 const CACHE_NAME = "privacy-policy-cache-v1";
 const FILES_TO_CACHE = [
   "/",
-  "/index.html",
+  "/privacy.html",
   "/offline.html"
 ];
 
@@ -41,3 +41,4 @@ self.addEventListener("fetch", (event) => {
     )
   );
 });
+
